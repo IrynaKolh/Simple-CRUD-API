@@ -20,7 +20,7 @@ const server = createServer((req: IncomingMessage, res: ServerResponse) => {
     deleteUser(req, res, id);
   }  else {
     res.writeHead(404, { 'Content-Type': 'application/json' });
-    res.end('Page not found222');
+    res.end('Page not found!');
   }
 });
 
