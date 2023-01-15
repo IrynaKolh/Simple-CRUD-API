@@ -17,7 +17,8 @@ export const addNewUser = (user: UserData) : User => {
 }
 
 export const deleteOneUser = (id: string) => {
- return users.filter((user) => user.id !== id);
+  const index = users.findIndex((user) => user.id === id);
+  return users.splice(index, 1);
 }
 
 export const updateOneUser = (id: string, user: UserData) : User => {

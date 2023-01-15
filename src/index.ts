@@ -18,9 +18,9 @@ const server = createServer((req: IncomingMessage, res: ServerResponse) => {
   } else if (req.url?.match(/\/api\/users\/\S+/) && req.method === 'DELETE') {
     const id = req.url.split('/')[3];
     deleteUser(req, res, id);
-  } else {
+  }  else {
     res.writeHead(404, { 'Content-Type': 'application/json' });
-    res.end('Page not found');
+    res.end('Page not found222');
   }
 });
 

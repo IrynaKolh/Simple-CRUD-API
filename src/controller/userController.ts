@@ -22,7 +22,7 @@ const getUser =  async (req, res, id) => {
         res.writeHead(HttpStatusCode.BAD_REQUEST, { 'Content-Type': 'application/json' });
         res.end(JSON.stringify({ message: `id ${id} is invalid` }));
       } else {
-        res.writeHead(HttpStatusCode.BAD_REQUEST, { 'Content-Type': 'application/json' });
+        res.writeHead(HttpStatusCode.NOT_FOUND, { 'Content-Type': 'application/json' });
         res.end(
           JSON.stringify({ message: `User with id ${id} doesn't exist` })
         );

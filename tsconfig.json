@@ -1,9 +1,10 @@
 {
   "compilerOptions": {  
-    "target": "ES2022",
-    "module": "esnext",
-    "rootDir": "src",
+    "target": "es2018",
+    "module": "NodeNext", 
+    "rootDir": "./src", 
     "moduleResolution": "node",
+    "allowJs": true,
     "outDir": "./dist",
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
@@ -17,11 +18,13 @@
 		"test",
 		"dist",
 		"**/*spec.ts",
+    "webpack.config.ts"
 	],
 	"include": [
 		"src",
 	],
   "ts-node": {
-    "esm": true
+    "esm": true,
+    "experimentalSpecifierResolution": "node"
   },
 }
