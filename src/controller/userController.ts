@@ -42,6 +42,7 @@ const createUser = async (req, res) => {
     for await (const chunk of req) {
       body += chunk
     }
+
     const { username, age, hobbies } = JSON.parse(body);
 
     if (!username || !age || !hobbies) {
@@ -54,7 +55,7 @@ const createUser = async (req, res) => {
     } else if (
       typeof username !== 'string' ||
       typeof age !== 'number' ||
-      typeof hobbies !== 'string'
+      !Array.isArray(hobbies)
     ) {
       res.writeHead(HttpStatusCode.INTERNAL_SERVER_ERROR, { 'Content-Type': 'application/json' });
       res.end(JSON.stringify({ message: 'Wrong types of fields' }));
@@ -121,7 +122,7 @@ const updateUser = async (req, res, id) => {
     } else if (
       typeof username !== 'string' ||
       typeof age !== 'number' ||
-      typeof hobbies !== 'string'
+      !Array.isArray(hobbies)
     ) {
       res.writeHead(HttpStatusCode.INTERNAL_SERVER_ERROR, { 'Content-Type': 'application/json' });
       res.end(JSON.stringify({ message: 'Wrong types of fields' }));

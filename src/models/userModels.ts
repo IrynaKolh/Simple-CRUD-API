@@ -1,7 +1,7 @@
 import { User, UserData } from "./interfaces";
 import { v4 as uuidv4 } from 'uuid';
 
-let users: User[] = [];
+const users: User[] = [];
 
 export const getAllUsers = () => {
   return users;

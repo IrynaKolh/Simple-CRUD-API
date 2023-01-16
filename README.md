@@ -16,8 +16,8 @@ Run `npm install` to get all dependensis.
  ## 3
  body example:
 
- {
+{
     "username": "NewUser",
     "age": 35,
-    "hobbies": "test, cook, draw"
+    "hobbies": ["test", "cook", "draw"]
 } 

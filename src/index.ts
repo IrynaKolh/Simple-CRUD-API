@@ -4,7 +4,7 @@ import dotenv from 'dotenv';
 import { createUser, deleteUser, getUser, getUsers, updateUser } from './controller/userController';
 
 
-const server = createServer((req: IncomingMessage, res: ServerResponse) => {
+export const server = createServer((req: IncomingMessage, res: ServerResponse) => {
   if (req.url === '/api/users' && req.method === 'GET') {
     getUsers(req, res);
   } else if (req.url?.match(/\/api\/users\/\S+/) && req.method === 'GET') {
@@ -27,3 +27,7 @@ const server = createServer((req: IncomingMessage, res: ServerResponse) => {
 dotenv.config();
 const PORT = process.env.PORT || 4000;
 server.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+
+process.on('SIGINT', () => {
+  server.close(() => process.exit());
+});

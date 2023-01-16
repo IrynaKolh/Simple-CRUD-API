@@ -1,7 +1,7 @@
 export interface UserData {
   username: string,
   age: number,
-  hobbies: string
+  hobbies: string[]
 }
 
 export interface User extends UserData {
