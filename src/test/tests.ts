@@ -2,6 +2,7 @@ import request from "supertest";
 import { server } from "../index";
 import { HttpStatusCode, UserData } from "../models/interfaces";
 import { v4 as uuidv4 } from 'uuid';
+import { users } from "../models/userModels";
 
 
 const testedUser: UserData = {
@@ -32,7 +33,7 @@ describe("1 SCENARIO, SUCCESS empty DB -> add user -> get user -> update user ->
       .get("/api/users")
       .set("Accept", "application/json");
     expect(res.status).toBe(HttpStatusCode.OK);
-    expect(res.text).toEqual("[]");
+    expect(users).toEqual([]);
   });
   it("A new object is created by a POST api/users request (a response containing newly created record is expected)", async () => {
     const res = await request(server).post("/api/users").send(testedUser);
@@ -66,7 +67,7 @@ describe("1 SCENARIO, SUCCESS empty DB -> add user -> get user -> update user ->
       .get("/api/users")
       .set("Accept", "application/json");
     expect(res.status).toBe(HttpStatusCode.OK);
-    expect(res.text).toEqual("[]");
+    expect(users).toEqual([]);
   });
 });
 
